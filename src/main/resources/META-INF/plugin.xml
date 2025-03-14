@@ -1,0 +1,68 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.example.ncode</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Ncode</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    Enter short description for your plugin here.<br>
+    <em>most HTML tags may be used</em>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+    <actions>
+        <!-- Define a new group named "ncode" -->
+        <group id="com.example.ncodeGroup"
+               text="ncode"
+               description="Custom ncode group"
+               popup="true">
+
+            <!-- Attach this group to the Editor Popup Menu -->
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </group>
+
+
+        <!-- Ask Question -->
+        <action id="com.example.ncode.AskQuestionToolWindowContentToolWindowContent"
+                class="com.example.ncode.AskQuestionAction"
+                text="Ask Question">
+            <add-to-group group-id="com.example.ncodeGroup"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt G"/>
+        </action>
+
+        <!-- Generate Test Case -->
+        <action id="com.example.ncode.GenerateTestCase"
+                class="com.example.ncode.GenerateTestCase"
+                text="Generate Test Case">
+            <add-to-group group-id="com.example.ncodeGroup"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt G"/>
+        </action>
+
+        <!-- Generate Documentation -->
+        <action id="com.example.ncode.GenerateDocumentation"
+                class="com.example.ncode.GenerateDocumentation"
+                text="Generate Documentation">
+            <add-to-group group-id="com.example.ncodeGroup"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt G"/>
+        </action>
+    </actions>
+
+</idea-plugin>
